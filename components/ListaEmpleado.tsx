@@ -21,6 +21,8 @@ export const ListaEmpleado = () => {
   },[])
 
   return (
-    <div></div>
+    <div className='container'> 
+    hola
+    </div>
   )
 }
