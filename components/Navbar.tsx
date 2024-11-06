@@ -6,27 +6,27 @@ import Image from 'next/image';
 
 export const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
-  const pathname = usePathname();
+    const pathname = usePathname();
 
-  const closeNavbar = () => {
-    setNavbar(false);
-  };
+    const closeNavbar = () => {
+        setNavbar(false);
+    };
 
     return (
-        <nav className="w-full bg-[#0D0D0D] fixed top-0 left-0 right-0 z-10 py-2">
-            <div className="justify-between px-4 mx-auto lg:max-w-7xl lg:flex lg:items-center  lg:px-8">
+        <nav className=" bg-[#0D0D0D] fixed top-0 left-0 right-0 z-10 py-2">
+            <div className="justify-between px-2 mx-auto lg:max-w-7xl lg:flex lg:items-center  lg:px-6">
                 <div>
                     <div className="flex items-center justify-between py-1 lg:py-5 lg:block">
-                        <Link href="/">
-                            <h1 className={`px-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500 text-2xl font-bold underline underline-offset-8 decoration-rose-500 decoration-1`} aria-label="Jeimmy Lopez Vega">JeimmyLV</h1>
+                        <Link href="/" className='px-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500 text-2xl font-bold underline underline-offset-8 decoration-amber-500 decoration-1'>
+                            ApiEmp
                         </Link>
                         <div className="block aspect-square lg:hidden">
                             <button className="p-2 text-white outline-none text-3xl focus:border focus:border-teal-400" aria-label='Open or Close Navbar'
                                 onClick={() => setNavbar(!navbar)}>
                                 {navbar ? (
-                                    <Image src="/images/bars-solid.svg" width={20} height={20}  alt='menu' title='close' className='invert brightness-75' />
+                                    <Image src="/images/bars-solid.svg" width={20} height={20} alt='menu' title='close' className='invert brightness-75' />
                                 ) : (
-                                    <Image src="/images/bars-solid.svg" width={20} height={20}  alt='menu' title='close' className='invert brightness-75' />
+                                    <Image src="/images/bars-solid.svg" width={20} height={20} alt='menu' title='close' className='invert brightness-75' />
                                 )}
                             </button>
                         </div>
@@ -45,7 +45,6 @@ export const Navbar = () => {
                                     Departamentos
                                 </Link>
                             </li>
-                            
                         </ul>
                     </div>
                 </div>
