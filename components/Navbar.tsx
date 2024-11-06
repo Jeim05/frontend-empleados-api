@@ -2,8 +2,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react'
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faBars, faXmark} from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image';
 
 export const Navbar = () => {
