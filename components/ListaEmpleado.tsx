@@ -1,6 +1,7 @@
 'use client'
 import { Empleado } from '@/Interfaces/Empleado'
 import { appsettings } from '@/settings/appsettings';
+import Image from 'next/image';
 import Link from 'next/link';
 import { use, useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
@@ -40,7 +41,7 @@ export const ListaEmpleado = () => {
               <th >Fecha de contrato</th>
               <th>Departamento</th>
               <th>Sueldo</th>
-              <th></th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -48,18 +49,21 @@ export const ListaEmpleado = () => {
               empleados.map((item) => (
                 <tr key={item.idEmpleado} className="">
                   <td className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'>{item.nombreCompleto}</td>
-                  <td className='px-6 py-4">'>{item.fechaContrato}</td>
-                  <td className='px-6 py-4">'>{item.departamento.nombre}</td>
-                  <td className='px-6 py-4">'>{item.sueldo}</td>
-                  <td className='px-6 py-4">'>
-                    
+                  <td className='px-6 py-4'>{item.fechaContrato}</td>
+                  <td className='px-6 py-4'>{item.departamento.nombre}</td>
+                  <td className='px-6 py-4'>{item.sueldo}</td>
+                  <td className='px-6 py-4 flex gap-2 justify-start'>
+                    <Link href="/">
+                      <Image src="/images/pen-to-square-solid.svg" width={25} height={25} alt='edit' title='close' className='fill-yellow-500' />
+                    </Link>
+                    <button className=''>
+                      <Image src="/images/trash-can-solid.svg" width={25} height={25} alt='edit' title='close' className='fill-yellow-500' />
+                    </button>
                   </td>
                 </tr>
 
               ))
             }
-
-
           </tbody>
         </table>
 
