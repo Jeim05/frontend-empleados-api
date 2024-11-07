@@ -20,16 +20,24 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.card{
+ @apply w-full bg-white border border-teal-700 rounded-lg shadow;
+}
+
+.card-header{
+@apply py-8 px-4 border-b border-teal-700 rounded-t-lg bg-gray-100;
+}
+
 .card-body {
   @apply overflow-x-auto;
 }
 
 .tabla {
-  @apply w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400;
+  @apply w-full text-base text-left rtl:text-right text-gray-500 dark:text-gray-400;
 }
 
 .tabla thead{
-  @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+  @apply text-base text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
 }
 
 .tabla th{
