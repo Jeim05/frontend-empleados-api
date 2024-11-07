@@ -33,22 +33,27 @@ export const ListaEmpleado = () => {
       </div>
       <hr />
       <div className='card-body'>
-        <table className="table">
-          <thead>
+        <table className="tabla">
+          <thead >
             <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Column 2</th>
-              <th scope="col">Column 3</th>
+              <th >Nombre completo</th>
+              <th >Fecha de contrato</th>
+              <th>Departamento</th>
+              <th>Sueldo</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {
-              empleados.map((item, index) => (
-                <tr className="">
-                  <td>{item.nombreCompleto}</td>
-                  <td>{item.fechaContrato}</td>
-                  <td>{item.departamento.nombre}</td>
-                  <td>{item.sueldo}</td>
+              empleados.map((item) => (
+                <tr key={item.idEmpleado} className="">
+                  <td className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'>{item.nombreCompleto}</td>
+                  <td className='px-6 py-4">'>{item.fechaContrato}</td>
+                  <td className='px-6 py-4">'>{item.departamento.nombre}</td>
+                  <td className='px-6 py-4">'>{item.sueldo}</td>
+                  <td className='px-6 py-4">'>
+                    
+                  </td>
                 </tr>
 
               ))
