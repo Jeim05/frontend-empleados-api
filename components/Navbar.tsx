@@ -26,7 +26,7 @@ export const Navbar = () => {
                                 {navbar ? (
                                     <Image src="/images/bars-solid.svg" width={20} height={20} alt='menu' title='close' className='invert brightness-75' />
                                 ) : (
-                                    <Image src="/images/bars-solid.svg" width={20} height={20} alt='menu' title='close' className='invert brightness-75' />
+                                    <Image src="/images/xmark-solid.svg" width={20} height={20} alt='menu' title='close' className='invert brightness-75' />
                                 )}
                             </button>
                         </div>

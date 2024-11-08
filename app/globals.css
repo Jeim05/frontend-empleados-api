@@ -43,3 +43,15 @@ body {
 .tabla th{
   @apply px-6 py-3;
 }
+
+.modal-overlay{
+  @apply fixed bg-white top-20 left-[40%] mx-auto w-auto h-auto z-50 rounded-md;
+}
+
+.modal-header{
+  @apply bg-slate-300 p-5 w-96;
+}
+
+.modal-content {
+  @apply bg-slate-300 p-5 w-96;
+}
