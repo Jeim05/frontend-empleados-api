@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 
 export const ListaEmpleado = () => {
   const [empleados, setEmpleados] = useState<Empleado[]>([]);
-  const [showModal, setShowModal] = useState(false)
+  //const [showModal, setShowModal] = useState(false)
 
   const obtenerEmpleados = async () => {
     const response = await fetch(`${appsettings.apiUrl}Empleado`);
@@ -22,13 +22,13 @@ export const ListaEmpleado = () => {
     obtenerEmpleados()
   }, [])
 
-  const handleOpenModal = () => {
+/*   const handleOpenModal = () => {
     setShowModal(true)
   }
 
   const handleCloseModal = () => {
     setShowModal(false)
-  }
+  } */
 
   return (
     <div className='container mx-auto'>
@@ -37,9 +37,9 @@ export const ListaEmpleado = () => {
           <div className='grid grid-cols-2'>
             <h1 className='text-4xl font-bold'>Lista de empleados</h1>
             <div className='my-5 text-end'>
-              <button onClick={handleOpenModal} className='py-3 px-2 bg-blue-700 text-white text-base font-semibold rounded-md'>
+              <Link href="/nuevoempleado" className='py-3 px-2 bg-blue-700 text-white text-base font-semibold rounded-md'>
                 Crear nuevo
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ export const ListaEmpleado = () => {
                     <td className='px-6 py-4'>{item.departamento.nombre}</td>
                     <td className='px-6 py-4'>${item.sueldo}</td>
                     <td className='px-6 py-4 flex gap-2 justify-start'>
-                      <Link href="/" className='fill-red-600'>
+                      <Link href={`/editarempleado/${item.idEmpleado}`} className='fill-red-600'>
                         <Image src="/images/pen-to-square-solid.svg" width={25} height={25} alt='edit' title='close' className='fill-yellow-500' />
                       </Link>
                       <button className=''>
@@ -78,7 +78,11 @@ export const ListaEmpleado = () => {
           </table>
         </div>
       </div>
-      {
+    </div>
+  )
+}
+
+{/*  {
         showModal && (
           <div className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div className="relative p-4 w-full max-w-2xl max-h-full">
@@ -143,7 +147,4 @@ export const ListaEmpleado = () => {
           </div>
 
         )
-      }
-    </div>
-  )
-}
+      } */}
