@@ -3,8 +3,8 @@ import { Empleado } from '@/Interfaces/Empleado'
 import { appsettings } from '@/settings/appsettings';
 import Image from 'next/image';
 import Link from 'next/link';
-import { use, useEffect, useState } from 'react'
-import Swal from 'sweetalert2'
+import { useEffect, useState } from 'react'
+
 
 export const ListaEmpleado = () => {
   const [empleados, setEmpleados] = useState<Empleado[]>([]);
@@ -13,7 +13,6 @@ export const ListaEmpleado = () => {
     const response = await fetch(`${appsettings.apiUrl}Empleado`);
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
       setEmpleados(data)
     }
   }
