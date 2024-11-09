@@ -94,7 +94,7 @@ export const ListaEmpleado = () => {
                       <Link href={`/editarempleado/${item.idEmpleado}`} className='bg-yellow-500 p-1.5 rounded-sm'>
                         <Image src="/images/pen-to-square-solid.svg" width={22} height={22} alt='edit' title='close' className='filter invert hover:filter-none' />
                       </Link>
-                      <button onClick={() => eliminarEmpleado(item.idEmpleado)} className='bg-red-500 p-1.5 rounded-sm '>
+                      <button onClick={() => item.idEmpleado !== undefined && eliminarEmpleado(item.idEmpleado)} className='bg-red-500 p-1.5 rounded-sm '>
                         <Image src="/images/trash-can-solid.svg" width={22} height={22} alt='edit' title='close' className='filter invert hover:filter-none' />
                       </button>
                     </td>
