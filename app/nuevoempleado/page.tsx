@@ -1,9 +1,10 @@
 "use client"
-import { useState, ChangeEvent, FormEvent } from 'react'
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react'
 import { Empleado } from '@/Interfaces/Empleado'
 import Swal from 'sweetalert2'
 import { appsettings } from '@/settings/appsettings'
 import Link from 'next/link'
+import { Departamento } from '@/Interfaces/Departamento'
 
 const initialEmpleado: Empleado = {
   nombreCompleto: "",
@@ -15,8 +16,18 @@ const initialEmpleado: Empleado = {
   fechaContrato: ""
 }
 
+
 export default function NuevoEmpleado() {
-  const [empleado, setEmpleado] = useState<Empleado>(initialEmpleado)
+  const [empleado, setEmpleado] = useState<Empleado>(initialEmpleado);
+  const [departamentos, setDepartamentos] = useState<Departamento[]>([]);
+
+  const obtenerDepartamentos = async () =>{
+    const response = await fetch(`${appsettings.apiUrl}Departamento`);
+    if (response.ok) {
+      const data = await response.json();
+      setDepartamentos(data)
+    }
+  }
 
   const inputChangeValue = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -48,6 +59,9 @@ export default function NuevoEmpleado() {
       Swal.fire('Error', 'No se pudo conectar con el servidor', 'error')
     }
   }
+  useEffect(() => {
+    obtenerDepartamentos()
+  }, [])
 
   return (
     <div className='container max-w-screen-xl mx-auto pt-28 px-2'>
@@ -112,8 +126,11 @@ export default function NuevoEmpleado() {
                       onChange={inputChangeValue}
                       className="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3"
                     >
-                      <option value={1}>Administración</option>
-                      <option value={2}>Marketing</option>
+                      <option value="0">Seleccione</option>
+                      {departamentos.map((item)=> (
+                        <option value={item.idDepartamento}>{item.nombre}</option>
+                      ))}
+                      
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                       <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>

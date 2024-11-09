@@ -1,4 +1,5 @@
 'use client'
+import { Departamento } from '@/Interfaces/Departamento';
 import { Empleado } from '@/Interfaces/Empleado'
 import { appsettings } from '@/settings/appsettings';
 import Image from 'next/image';
@@ -47,7 +48,7 @@ export const ListaEmpleado = () => {
   }
 
   useEffect(() => {
-    obtenerEmpleados()
+    obtenerEmpleados();
   }, [])
 
 /*   const handleOpenModal = () => {
