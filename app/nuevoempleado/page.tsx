@@ -3,6 +3,7 @@ import { useState, ChangeEvent, FormEvent } from 'react'
 import { Empleado } from '@/Interfaces/Empleado'
 import Swal from 'sweetalert2'
 import { appsettings } from '@/settings/appsettings'
+import Link from 'next/link'
 
 const initialEmpleado: Empleado = {
   nombreCompleto: "",
@@ -120,10 +121,13 @@ export default function NuevoEmpleado() {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center gap-3">
                 <button type="submit" className='bg-blue-500 text-white px-4 py-2 rounded'>
                   Guardar Empleado
                 </button>
+                <Link href="/" className='bg-slate-400 text-white px-4 py-2 rounded'>
+                  Volver
+                </Link>
               </div>
             </form>
           </div>

@@ -4,6 +4,7 @@ import { appsettings } from '@/settings/appsettings';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react'
+import Swal from 'sweetalert2';
 
 
 export const ListaEmpleado = () => {
@@ -15,6 +16,23 @@ export const ListaEmpleado = () => {
     if (response.ok) {
       const data = await response.json();
       setEmpleados(data)
+    }
+  }
+
+  const eliminarEmpleado = async (idEmpleado:number) =>{
+    const confirmResult = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás deshacer esta acción.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    });
+
+    if(confirmResult.isConfirmed){
+      
     }
   }
 
@@ -66,7 +84,7 @@ export const ListaEmpleado = () => {
                       <Link href={`/editarempleado/${item.idEmpleado}`} className='fill-red-600'>
                         <Image src="/images/pen-to-square-solid.svg" width={25} height={25} alt='edit' title='close' className='fill-yellow-500' />
                       </Link>
-                      <button className=''>
+                      <button onClick={() => eliminarEmpleado(item.idEmpleado)}>
                         <Image src="/images/trash-can-solid.svg" width={25} height={25} alt='edit' title='close' className='fill-yellow-500' />
                       </button>
                     </td>
