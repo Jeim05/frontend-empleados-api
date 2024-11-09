@@ -32,7 +32,17 @@ export const ListaEmpleado = () => {
     });
 
     if(confirmResult.isConfirmed){
-      
+      const response = await fetch(`${appsettings.apiUrl}Empleado/${idEmpleado}`,{
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        Swal.fire('Eliminado', 'El empleado ha sido eliminado.', 'success');
+        obtenerEmpleados(); 
+      } else {
+        Swal.fire('Error', 'Hubo un problema al eliminar el empleado.', 'error');
+      }
+
     }
   }
 
@@ -81,11 +91,11 @@ export const ListaEmpleado = () => {
                     <td className='px-6 py-4'>{item.departamento.nombre}</td>
                     <td className='px-6 py-4'>${item.sueldo}</td>
                     <td className='px-6 py-4 flex gap-2 justify-start'>
-                      <Link href={`/editarempleado/${item.idEmpleado}`} className='fill-red-600'>
-                        <Image src="/images/pen-to-square-solid.svg" width={25} height={25} alt='edit' title='close' className='fill-yellow-500' />
+                      <Link href={`/editarempleado/${item.idEmpleado}`} className='bg-yellow-500 p-1.5 rounded-sm'>
+                        <Image src="/images/pen-to-square-solid.svg" width={22} height={22} alt='edit' title='close' className='filter invert hover:filter-none' />
                       </Link>
-                      <button onClick={() => eliminarEmpleado(item.idEmpleado)}>
-                        <Image src="/images/trash-can-solid.svg" width={25} height={25} alt='edit' title='close' className='fill-yellow-500' />
+                      <button onClick={() => eliminarEmpleado(item.idEmpleado)} className='bg-red-500 p-1.5 rounded-sm '>
+                        <Image src="/images/trash-can-solid.svg" width={22} height={22} alt='edit' title='close' className='filter invert hover:filter-none' />
                       </button>
                     </td>
                   </tr>
