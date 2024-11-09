@@ -71,7 +71,6 @@ export const ListaEmpleado = () => {
                       </button>
                     </td>
                   </tr>
-
                 ))
               }
             </tbody>
