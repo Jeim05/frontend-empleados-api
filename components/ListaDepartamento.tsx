@@ -4,6 +4,7 @@ import { appsettings } from '@/settings/appsettings';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2';
 
 export default function ListaDepartamento() {
     const [departamentos, setDepartamentos] = useState<Departamento[]>([]);
@@ -15,6 +16,32 @@ export default function ListaDepartamento() {
             setDepartamentos(data)
         }
     }
+
+    const eliminarDepartamento = async (idDepartamento:number) =>{
+        const confirmResult = await Swal.fire({
+          title: '¿Estás seguro?',
+          text: 'No podrás deshacer esta acción.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, eliminar',
+          cancelButtonText: 'Cancelar'
+        });
+    
+        if(confirmResult.isConfirmed){
+          const response = await fetch(`${appsettings.apiUrl}Departamento/${idDepartamento}`,{
+            method: 'DELETE',
+          });
+    
+          if (response.ok) {
+            Swal.fire('Eliminado', 'El departamento ha sido eliminado.', 'success');
+            obtenerDepartamentos(); 
+          } else {
+            Swal.fire('Error', 'Hubo un problema al eliminar el departamento.', 'error');
+          }
+        }
+      }
 
     useEffect(() => {
         obtenerDepartamentos()
