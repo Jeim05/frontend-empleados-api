@@ -21,11 +21,11 @@ body {
 }
 
 .card{
- @apply w-full bg-white border border-teal-700 rounded-lg shadow;
+ @apply max-w-6xl mx-auto bg-white border border-teal-700 rounded-lg shadow;
 }
 
 .card-header{
-@apply py-8 px-4 border-b border-teal-700 rounded-t-lg bg-gray-100;
+@apply py-4 px-4 border-b border-teal-700 rounded-t-lg bg-gray-100;
 }
 
 .card-body {
