@@ -52,7 +52,7 @@ export default function ListaDepartamento() {
     const guardarDepartamento = async () => {
         if (departamentoActual) {
             const method = departamentoActual.idDepartamento ? 'PUT' : 'POST';
-            const url = departamentoActual ? `${appsettings.apiUrl}Departamento}` : `${appsettings.apiUrl}Departamento`;
+            const url = departamentoActual ? `${appsettings.apiUrl}Departamento` : `${appsettings.apiUrl}Departamento`;
 
             const response = await fetch(url, {
                 method,
