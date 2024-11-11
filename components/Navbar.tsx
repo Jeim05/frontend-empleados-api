@@ -45,6 +45,11 @@ export const Navbar = () => {
                                     Departamentos
                                 </Link>
                             </li>
+                            <li >
+                                <Link href="https://github.com/Jeim05/" className='py-4 px-4'>
+                                    <Image src="/images/github-brands-solid.svg" width={20} height={20} alt='Github' title='Github profile' className='invert brightness-75 ' />
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
